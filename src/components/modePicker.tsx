@@ -7,7 +7,9 @@ interface ModePickerProps {
 
 function ModePickerComponent(props: ModePickerProps) {
     let modes: string[] = ["Full", "Short"];
-    let refs: React.RefObject<HTMLInputElement>[] = modes.map(() => useRef(null));
+    let refs: React.RefObject<HTMLInputElement>[] = []
+    refs[0] = useRef(null)
+    refs[1] = useRef(null)
 
     return (
         <>
@@ -19,7 +21,7 @@ function ModePickerComponent(props: ModePickerProps) {
               value={mode}
               ref={refs[index]}
               onClick={e => {
-                  if (e.currentTarget.value === props.mode) props.setMode(e.currentTarget.value)
+                  props.setMode(e.currentTarget.value)
               }}
               name="outputMode"
               defaultChecked={props.mode === mode}

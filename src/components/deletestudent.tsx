@@ -1,12 +1,11 @@
 import React, {useRef} from 'react';
-import {Student, StudentId} from '../data/Student'
-import { CourseId } from '../data/Course';
+import {StudentId} from '../data/Student'
 
-interface DeleteStudent {
+interface DeleteStudentProps {
     add: (studentId: StudentId) => void
 }
 
-function DeleteStudent(props: DeleteStudent) {
+function DeleteStudent(props: DeleteStudentProps) {
     let StudentRef = useRef<HTMLInputElement | null>(null);
 
     function deletest(): void {

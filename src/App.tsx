@@ -10,8 +10,8 @@ import ColorInputComponent from "./components/colorInput";
 import {ADeleteStudent, AddStudent, ChangeStudentGrade} from "./redux/action";
 import CAddStudent from "./components/addStudent";
 import AddMarktoStudent from './components/addmarktostudent';
-import { CourseId } from './data/Course';
-import { StudentId } from './data/Student';
+import {CourseId} from './data/Course';
+import {StudentId} from './data/Student';
 import DeleteStudent from './components/deletestudent';
 
 const css: React.CSSProperties = {
@@ -23,8 +23,8 @@ const css: React.CSSProperties = {
 export const contextMode = createContext(new ContextProvider(Array.from({length: 10}, () => "#FFFFFF"), "Full"));
 
 function App() {
-    const [greatLink, setGreatLink] = useState('Great'); //TODO HERE
-    const [badLink, setBadLink] = useState('Bad'); //TODO HERE
+    const [greatLink, setGreatLink] = useState('Great');
+    const [badLink, setBadLink] = useState('Bad');
 
     const gradesLinks = [greatLink, badLink];
     const [state, dispatch] = useReducer(markReducer, testState());
@@ -56,9 +56,10 @@ function App() {
                     </details>
                     <details>
                         <summary>Change mark to student</summary>
-                        <AddMarktoStudent add={(courseId: CourseId, studentId: StudentId, grade: number) => dispatch(new ChangeStudentGrade(courseId, studentId, grade))}/>
+                        <AddMarktoStudent
+                            add={(courseId: CourseId, studentId: StudentId, grade: number) => dispatch(new ChangeStudentGrade(courseId, studentId, grade))}/>
                     </details>
-                            <details>
+                    <details>
                         <summary>Delete Student</summary>
                         <DeleteStudent add={(studentId: StudentId) => dispatch(new ADeleteStudent(studentId))}/>
                     </details>
@@ -79,7 +80,8 @@ function App() {
                                 <div style={css}>
                                     <ModePickerComponent
                                         mode={settingsContext.mode}
-                                        setMode={(mode) => setContext({...settingsContext, mode})}
+                                        setMode={(mode) =>
+                                            setContext({...settingsContext, mode})}
                                     />
                                     <ColorInputComponent
                                         value={settingsContext.colors}

@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Student, StudentId} from '../data/Student'
+import {StudentId} from '../data/Student'
 import { CourseId } from '../data/Course';
 
 interface AddMarktoStudentProps {
