@@ -14,24 +14,27 @@ function StudentListComponent(props: StudentListProps) {
     return (
         <div>
             <table>
+                <tbody>
                 {props.list.map((studentData, index) => (
-                    <tr>
+                    <tr key ={index}>
                         {props.marked[index] && (
-                            <td style={{fontWeight: 'Bold'}} onClick={ e=> props.clickId(studentData.id)}>
+                            <td style={{fontWeight: 'Bold'}} onClick={e => props.clickId(studentData.id)}>
                                 <SingleStudentComponent student={studentData}/>
                             </td>
                         )}
                         {!props.marked[index] && (
-                            <td onClick={ e=> props.clickId(studentData.id)}>
+                            <td onClick={e => props.clickId(studentData.id)}>
                                 <SingleStudentComponent student={studentData}/>
                             </td>
                         )}
                         <td>
-                            <StudentGradeComponent key={index} grade={props.grades[index]} setGrade={(newGrade) => {
-                                props.gradeId(studentData.id, newGrade)}}/>
+                            <StudentGradeComponent grade={props.grades[index]} setGrade={(newGrade) => {
+                                props.gradeId(studentData.id, newGrade)
+                            }} />
                         </td>
                     </tr>
                 ))}
+                </tbody>
             </table>
         </div>
     )

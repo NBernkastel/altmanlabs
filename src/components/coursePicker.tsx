@@ -29,8 +29,6 @@ function CoursePickerComponent(props: CoursePickerProps) {
             }}
             grade={(studentId: StudentId, grade: number) => {
                 let newhangeStudentGrade = new ChangeStudentGrade(course?.id, studentId, grade)
-                console.log(newhangeStudentGrade)
-                console.log(grade)
                 props.dispatch(newhangeStudentGrade)
         }}
             candidates={props.state.students.filter(e => !course?.students.includes(e))}

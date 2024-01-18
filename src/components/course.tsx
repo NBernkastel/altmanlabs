@@ -23,8 +23,8 @@ function CourseComponent(props: CourseProps) {
                     Add Student
                 </summary>
                 <select ref={addStudentSelectRef}>
-                    {props.candidates.map((student: Student) => (
-                        <option>
+                    {props.candidates.map((student: Student, index) => (
+                        <option key={index}>
                             {student.id}
                         </option>
                     ))}

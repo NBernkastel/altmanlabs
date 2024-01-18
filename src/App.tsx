@@ -35,15 +35,15 @@ function App() {
             <contextMode.Provider value={settingsContext}>
                 <HashRouter>
                     <div style={css}>
-                        {state.courses.map((course) => (
-                            <ReactRouterLink to={`/${course.name}`} style={css}>
+                        {state.courses.map((course,index) => (
+                            <ReactRouterLink to={`/${course.name}`} style={css} key={index}>
                                 {course.name}
                             </ReactRouterLink>
                         ))}
                     </div>
 
                     <div style={{flexDirection: 'column'}}>
-                        {gradesLinks.map((gradeLink) => (
+                        {gradesLinks.map((gradeLink,index) => (
                             <ReactRouterLink key={gradeLink} to={`/list/${gradeLink}`} style={css}>
                                 {gradeLink}
                             </ReactRouterLink>
